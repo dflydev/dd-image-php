@@ -213,7 +213,9 @@ class dd_image_ImageResizer {
         );
 
         $target = imagecreatetruecolor($targetWidth, $targetHeight);
-
+        imagealphablending($target, false);
+        imagesavealpha($target, true);
+        
         self::copyResource(
             self::resourceFrom($input, $sourceImageInfo), $sourceImageInfo['0'], $sourceImageInfo['1'],
             $target, $targetWidth, $targetHeight
@@ -245,7 +247,9 @@ class dd_image_ImageResizer {
         );
 
         $target = imagecreatetruecolor($targetWidth, $targetHeight);
-
+        imagealphablending($target, false);
+        imagesavealpha($target, true);
+        
         imagecopyresampled(
             $target,
             self::resourceFrom($input, $sourceImageInfo),
